@@ -61,15 +61,17 @@ const Login = () => {
       const res = await API.post("/auth/login", form);
 
       // save user in localStorage
-      localStorage.setItem("user", JSON.stringify(res.data));
+      localStorage.setItem("token", res.data.token);
 
       alert("Login successful");
       navigate("/properties");
     } catch (err) {
-      if (err.response && err.response.data.message) {
-        alert(err.response.data.message);
+      console.log(err); // 👈 IMPORTANT
+
+      if (err.response) {
+        alert(err.response.data.msg); // backend uses "msg"
       } else {
-        alert("Something went wrong");
+        alert("Server not responding");
       }
     }
   };
@@ -78,7 +80,10 @@ const Login = () => {
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-12 col-sm-8 col-md-6 col-lg-4">
-          <form className="p-4 border rounded shadow-sm" onSubmit={handleSubmit}>
+          <form
+            className="p-4 border rounded shadow-sm"
+            onSubmit={handleSubmit}
+          >
             <h3 className="text-center mb-4">Login</h3>
             <div className="mb-3">
               <label className="form-label">Email address</label>

@@ -63,14 +63,11 @@ const Signup = () => {
 
     try {
       await API.post("/auth/signup", form);
-      alert("Signup successful! Please login.");
+
+      alert("Signup successful");
       navigate("/login");
     } catch (err) {
-      if (err.response && err.response.data.message) {
-        alert(err.response.data.message);
-      } else {
-        alert("Something went wrong");
-      }
+      alert(err.response?.data?.msg || "Error");
     }
   };
 
@@ -78,7 +75,10 @@ const Signup = () => {
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-12 col-sm-8 col-md-6 col-lg-4">
-          <form className="p-4 border rounded shadow-sm" onSubmit={handleSubmit}>
+          <form
+            className="p-4 border rounded shadow-sm"
+            onSubmit={handleSubmit}
+          >
             <h3 className="text-center mb-4">Signup</h3>
 
             <div className="mb-3">
