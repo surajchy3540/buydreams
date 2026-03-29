@@ -1,98 +1,84 @@
 // import React from "react";
-//  <div className="conatiner">
-//     const Login = () => {
-//   return (
-//     <div>
-//       <form>
-//         <div className="mb-3">
-//           <label for="exampleInputEmail1" className="form-label">
-//             Email address
-//           </label>
-//           <input
-//             type="email"
-//             className="form-control"
-//             id="exampleInputEmail1"
-//             aria-describedby="emailHelp"
-//           />
-//           <div id="emailHelp" className="form-text">
-//             We'll never share your email with anyone else.
-//           </div>
-//         </div>
-//         <div className="mb-3">
-//           <label for="exampleInputPassword1" className="form-label">
-//             Password
-//           </label>
-//           <input
-//             type="password"
-//             className="form-control"
-//             id="exampleInputPassword1"
-//           />
-//         </div>
-//         <div className="mb-3 form-check">
-//           <input
-//             type="checkbox"
-//             className="form-check-input"
-//             id="exampleCheck1"
-//           />
-//           <label className="form-check-label" for="exampleCheck1">
-//             Check me out
-//           </label>
-//         </div>
-//         <button type="submit" className="btn btn-primary">
-//           Submit
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-//  </div>
-
-// export default Login;
-
-// import React from "react";
+// import { Link } from "react-router-dom";
 
 // const Login = () => {
 //   return (
-//     <div className="container">
-//       <form>
+//     <div className="container mt-5">
+//       <div className="row justify-content-center">
+//         <div className="col-12 col-sm-8 col-md-6 col-lg-4">
+//           <form className="p-4 border rounded shadow-sm">
+//             <h3 className="text-center mb-4">Login</h3>
+//             <div className="mb-3">
+//               <label className="form-label">Email address</label>
 
-//         <div className="mb-3">
-//           <label className="form-label">Email address</label>
-//           <input
-//             type="email"
-//             className="form-control"
-//             placeholder="Enter email"
-//           />
+//               <input
+//                 type="email"
+//                 className="form-control"
+//                 placeholder="Enter email"
+//                 autoComplete="email"
+//                 required
+//               />
+//             </div>
+//             <div className="mb-3">
+//               <label className="form-label">Password</label>
+//               <input
+//                 type="password"
+//                 className="form-control"
+//                 placeholder="Enter password"
+//                 autoComplete="current-password"
+//                 required
+//               />
+//             </div>
+//             <button type="submit" className="btn btn-primary w-100">
+//               Login
+//             </button>
+//             Forgotten password?
+//             <Link to="/signup" className="btn mx-2 my-4 btn-info">
+//               Signup
+//             </Link>
+//           </form>
 //         </div>
-
-//         <div className="mb-3">
-//           <label className="form-label">Password</label>
-//           <input
-//             type="password"
-//             className="form-control"
-//             placeholder="Enter password"
-//           />
-//         </div>
-
-//         <button type="submit" className="btn btn-primary">
-//           Login
-//         </button>
-
-//       </form>
+//       </div>
 //     </div>
 //   );
 // };
 
 // export default Login;
-import React from "react";
-import { Link } from "react-router-dom";
+
+// src/components/Login.js
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import API from "../api";
 
 const Login = () => {
+  const [form, setForm] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await API.post("/auth/login", form);
+
+      // save user in localStorage
+      localStorage.setItem("user", JSON.stringify(res.data));
+
+      alert("Login successful");
+      navigate("/properties");
+    } catch (err) {
+      if (err.response && err.response.data.message) {
+        alert(err.response.data.message);
+      } else {
+        alert("Something went wrong");
+      }
+    }
+  };
+
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-12 col-sm-8 col-md-6 col-lg-4">
-          <form className="p-4 border rounded shadow-sm">
+          <form className="p-4 border rounded shadow-sm" onSubmit={handleSubmit}>
             <h3 className="text-center mb-4">Login</h3>
             <div className="mb-3">
               <label className="form-label">Email address</label>
@@ -100,6 +86,10 @@ const Login = () => {
                 type="email"
                 className="form-control"
                 placeholder="Enter email"
+                autoComplete="email"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
             </div>
             <div className="mb-3">
@@ -108,15 +98,21 @@ const Login = () => {
                 type="password"
                 className="form-control"
                 placeholder="Enter password"
+                autoComplete="current-password"
+                required
+                value={form.password}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
               />
             </div>
             <button type="submit" className="btn btn-primary w-100">
               Login
             </button>
-            Forgotten password?
-            <Link to="/signup" className="btn mx-2 my-4 btn-info">
-              Signup
-            </Link>
+            <div className="text-center mt-3">
+              Don't have an account?
+              <Link to="/signup" className="btn mx-2 btn-info">
+                Signup
+              </Link>
+            </div>
           </form>
         </div>
       </div>

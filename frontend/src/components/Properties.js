@@ -53,3 +53,49 @@ const Card = ({ img }) => {
 };
 
 export default Properties;
+
+// import { useEffect, useState } from "react";
+// import API from "../api";
+
+// function Properties() {
+//   const [properties, setProperties] = useState([]);
+//   const [favorites, setFavorites] = useState([]);
+
+//   useEffect(() => {
+//     fetchProperties();
+//   }, []);
+
+//   const fetchProperties = async () => {
+//     const res = await API.get("/properties");
+//     setProperties(res.data);
+//   };
+
+//   const addToFavorites = (property) => {
+//     setFavorites([...favorites, property]);
+//   };
+
+//   return (
+//     <div>
+//       <h2>Properties</h2>
+
+//       {properties.map((p) => (
+//         <div key={p._id}>
+//           <h3>{p.title}</h3>
+//           <p>{p.price}</p>
+//           <p>{p.location}</p>
+//           <button onClick={() => addToFavorites(p)}>❤️ Like</button>
+//         </div>
+//       ))}
+
+//       <h2>My Favorites</h2>
+
+//       {favorites.map((f, index) => (
+//         <div key={index}>
+//           <h4>{f.title}</h4>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Properties;
