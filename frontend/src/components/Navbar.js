@@ -30,8 +30,7 @@
 //                 About
 //               </a>
 //             </li>
-            
-           
+
 //           </ul>
 //           <form className="d-flex justify-content-start" role="search">
 //             <input
@@ -60,10 +59,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-
         {/* Logo */}
         <Link className="navbar-brand" to="/">
-         <h1>BuyDreams</h1> 
+          <h1>BuyDreams</h1>
         </Link>
 
         {/* Toggle button (mobile) */}
@@ -77,7 +75,6 @@ const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-
           {/* Left side menu */}
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
@@ -92,8 +89,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/favourites">
-                MyFavourites
+              <Link to="/favourites" className="btn btn-warning">
+                My Favourites
               </Link>
             </li>
           </ul>
@@ -119,7 +116,6 @@ const Navbar = () => {
               Signup
             </Link>
           </div>
-
         </div>
       </div>
     </nav>
