@@ -91,6 +91,11 @@ const Navbar = () => {
                 About
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/favourites">
+                MyFavourites
+              </Link>
+            </li>
           </ul>
 
           {/* Search bar (center/right) */}

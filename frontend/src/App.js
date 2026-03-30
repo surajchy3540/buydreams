@@ -43,6 +43,7 @@ import About from "./components/About";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Properties from "./components/Properties";
+import MyFavourites from "./components/MyFavourites";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/favourites" element={<MyFavourites />} />
 
       </Routes>
     </Router>
