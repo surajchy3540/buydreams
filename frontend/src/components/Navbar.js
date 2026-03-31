@@ -60,9 +60,10 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         {/* Logo */}
-        <Link className="navbar-brand" to="/">
+        {/* <Link className="navbar-brand" to="/">
           <h1>BuyDreams</h1>
-        </Link>
+        </Link> */}
+        <h1>ByeDreams</h1>
 
         {/* Toggle button (mobile) */}
         <button
