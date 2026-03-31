@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { users } = require("../data/db");
 const { SECRET } = require("../config/config");
 
-// ✅ Signup
+// Signup
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -25,7 +25,7 @@ exports.signup = async (req, res) => {
   res.status(200).json({ msg: "User created" });
 };
 
-// ✅ Login
+//  Login
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 

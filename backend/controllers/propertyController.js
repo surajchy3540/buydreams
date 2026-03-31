@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { SECRET } = require("../config/config");
 const { users, properties } = require("../data/db");
 
-// ✅ Signup
+//  Signup
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -25,7 +25,7 @@ exports.signup = async (req, res) => {
   res.status(200).json({ msg: "User created" });
 };
 
-// ✅ Login
+//  Login
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -40,12 +40,12 @@ exports.login = async (req, res) => {
   res.status(200).json({ token });
 };
 
-// ✅ Get all properties
+//  Get all properties
 exports.getProperties = (req, res) => {
   res.json(properties);
 };
 
-// ❤️ Like property
+//  Like property
 exports.likeProperty = (req, res) => {
   const user = users.find(u => u.id === req.user.id);
   const propId = parseInt(req.params.id);
@@ -57,7 +57,7 @@ exports.likeProperty = (req, res) => {
   res.json({ msg: "Liked", favorites: user.favorites });
 };
 
-// ❌ Unlike property
+//  Unlike property
 exports.unlikeProperty = (req, res) => {
   const user = users.find(u => u.id === req.user.id);
   const propId = parseInt(req.params.id);
@@ -67,7 +67,7 @@ exports.unlikeProperty = (req, res) => {
   res.json({ msg: "Removed", favorites: user.favorites });
 };
 
-// ⭐ Get favorites
+//  Get favorites
 exports.getFavorites = (req, res) => {
   const user = users.find(u => u.id === req.user.id);
 

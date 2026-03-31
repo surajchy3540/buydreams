@@ -10,7 +10,7 @@ const {
   getFavorites
 } = require("../controllers/propertyController");
 
-// ✅ IMPORTANT: no ()
+// IMPORTANT: no ()
 router.get("/", getProperties);
 
 router.post("/like/:id", authMiddleware, likeProperty);

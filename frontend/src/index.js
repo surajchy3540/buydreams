@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// ✅ import provider
+//  import provider
 import { FavouritesProvider } from "./context/FavouritesContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
