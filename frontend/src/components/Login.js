@@ -65,6 +65,10 @@ const Login = () => {
 
       alert("Login successful");
       navigate("/properties");
+
+      window.location.reload();
+
+      
     } catch (err) {
       console.log(err); // 👈 IMPORTANT
 
