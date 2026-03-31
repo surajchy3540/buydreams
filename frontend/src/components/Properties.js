@@ -27,8 +27,14 @@ const Card = ({ img, id }) => {
   const { addToFavourites } = useContext(FavouritesContext);
 
   return (
-    <div className="card position-relative">
-      <img src={img} className="card-img-top" alt="property" />
+    <div className="card position-relative flex-fill" style={{height:"100%"}}>
+      <img src={img} className="card-img-top" alt="property" style={{
+          width: "100%",        // full card width
+          height: "250px",      // fixed height for all images
+          objectFit: "cover",   // ensures image covers area without distortion
+          borderTopLeftRadius: "0.375rem",
+          borderTopRightRadius: "0.375rem"
+        }} />
 
       <div className="card-body">
         <h5 className="card-title">Beautiful Property</h5>
