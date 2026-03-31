@@ -102,9 +102,9 @@ const Card = ({ img, id }) => {
           <button
             onClick={() => addToFavourites({ id, img })}
             className="btn btn-info my-2"
-            style={{ width: "70px", height: "35px", cursor: "pointer" }}
+            style={{ cursor: "pointer" }}
           >
-            Like
+            <i className="bi bi-heart-fill text-light"></i>
           </button>
         </div>
       </div>
@@ -113,4 +113,3 @@ const Card = ({ img, id }) => {
 };
 
 export default Properties;
-

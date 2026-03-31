@@ -45,15 +45,26 @@ const MyFavourites = () => {
               <div className="card">
                 <img src={item.img} className="card-img-top" alt="fav" />
                 <div className="card-body">
-                    <h5 className="card-title">Beautiful Property</h5>
-        <p className="card-text">Modern design with a great location.</p>
+                  <h5 className="card-title">Beautiful Property</h5>
+                  <p className="card-text">
+                    Modern design with a great location.
+                  </p>
 
-                  <button
+                  {/* <button
                     onClick={() => removeFromFavourites(item.id)}
                     className="btn btn-danger"
                   >
                     Remove
-                  </button>
+                  </button> */}
+
+                  <div className="d-flex justify-content-end">
+                    <button
+                      className="btn btn-info my-2"
+                      onClick={() => removeFromFavourites(item.id)}
+                    >
+                      <i className="bi bi-trash-fill text-light"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

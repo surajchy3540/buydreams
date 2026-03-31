@@ -55,12 +55,12 @@ function App() {
           path="/"
           element={
             <>
-              <h2 className="text-center mt-4">
+              {/* <h2 className="text-center mt-4">
                 Get Your Dream Land, Apartment, Room, House Here
               </h2>
               <p className="text-center mt-4">
                 We are for you. We provide Land, Apartment, Room, House exactly like your dream
-              </p>
+              </p> */}
               {/* <Properties /> */}
               <Login/>
             </>

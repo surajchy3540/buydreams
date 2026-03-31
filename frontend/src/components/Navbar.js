@@ -212,7 +212,7 @@ const Navbar = () => {
                 </Link>
               </>
             ) : (
-              <button onClick={handleLogout} className="btn btn-danger">
+              <button onClick={handleLogout} className="btn btn-info">
                 Signout
               </button>
             )}

@@ -72,7 +72,17 @@ const Signup = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 my-5">
+      <>
+        <h2 className="text-center mt-4">
+          Get Your Dream Land, Apartment, Room, House Here
+        </h2>
+        <h6 className="text-center mt-4">
+          We are for you. We provide Land, Apartment, Room, House exactly like
+          your dream .
+        </h6>
+      </>
+      ;
       <div className="row justify-content-center">
         <div className="col-12 col-sm-8 col-md-6 col-lg-4">
           <form
