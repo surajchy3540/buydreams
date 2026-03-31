@@ -89,7 +89,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/favourites" className="btn btn-warning">
+              <Link className="nav-link" to="/properties">
+                Properties
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/favourites">
                 My Favourites
               </Link>
             </li>
