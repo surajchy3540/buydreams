@@ -6,11 +6,11 @@ const MyFavourites = () => {
 
   return (
     <div className="container mt-4">
-      <h2>My Favourites ❤️</h2>
+      <h2 className="text-center">My Favourites ❤️</h2>
 
       <div className="row">
         {favourites.length === 0 ? (
-          <p>No favourites yet</p>
+          <h6 className="text-center mt-5">No favourites yet. Please Login First!</h6>
         ) : (
           favourites.map((item) => (
             <div className="col-md-4 mb-4" key={item.id}>

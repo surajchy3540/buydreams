@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Properties from "./components/Properties";
 import MyFavourites from "./components/MyFavourites";
+import ImageCarousel from "./components/Carousel";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           path="/"
           element={
             <>
-              <Login/>
+              {/* <Login/> */}
+              <ImageCarousel/>
             </>
           }
         />
